@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My LifeTime 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #fde2ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #ffc0d6;
+  width: 95%;
+  max-width: 950px;
+  padding: 105px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.hidden {
+  display: none;
+}
+
+.teddy img {
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy img:hover {
+    transform: scale(1.1);
+}
+
+.teddy1 img {
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy1 img:hover {
+    transform: scale(1.1);
+}
+/* 🧸 Teddy */
+/*.teddy {
+  font-size: 80px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+*/
+
+h1 {
+  color: #5a0f2e;
+  margin: 15px 0;
+}
+
+p {
+  color: #6b1b3a;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  position: relative;
+}
+
+button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+  font-weight: bold;
+}
+
+#no {
+  background: #3a86ff;
+  color: white;
+}
+
+/* YES growth stages */
+.big {
+  transform: scale(1.3);
+}
+
+.bigger {
+  transform: scale(1.6);
+}
+
+.full {
+  width: 100%;
+}
+
+/* Gift Button */
+.red-btn {
+  background: #ff0033;
+  color: white;
+  margin-top: 20px;
+}
+
+
+/* 🎁 Gifts */
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.gift {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gift:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.gifts {
+  display: flex;
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.gift {
+  background: #ffefef;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift img {
+  width: 120px;
+  display: block;
+  margin: auto;
+}
+
+.gift p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.gift:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- PAGE 1 -->
+  <div id="page1">
+    <div class="teddy">
+      <img id="teddyGif" src="bear-love.gif" alt="Teddy" />
+  </div>
+    <h1>Will you be my Lifetime 🥺?</h1>
+    <p>Life is beautiful, but it’s even better with you in it.</p>
+
+    <p id="message"></p>
+
+    <div class="buttons">
+      <button id="yes">YES 💖</button>
+      <button id="no">NO 😝</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="hidden">
+  
+    <div class="teddy1">
+      <img id="teddyGif1" src="lovecutie0.gif" alt="Teddy1" />
+    </div>
+    <h1>Happy Valentine’s Day Mannu Ji 💖</h1>
+    <p>
+      <b>Garru Ji</b>, You are my comfort, my smile, my everything.  
+      I choose you today, tomorrow, and always my cutiee Pie🤗
+    </p>
+
+    <button class="red-btn" id="giftBtn">Check your gifts 🎁</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div id="page3" class="hidden">
+    <h1>Something for You 💝</h1>
+
+
+
+    <div class="gifts">
+      <div class="gift" onclick="openQuiz()">
+        <img src="dudu-hearts-gif.gif">
+        <p>Gift 1</p>
+      </div>
+      
+      <div class="gift" onclick="openLetter()">
+        <img src="DUDUletter.gif">
+        <p>Gift 2</p>
+      </div>
+    
+      <div class="gift" onclick="openGallery()">
+        <img src="bubu-dudu-flower-gift.gif">
+        <p>Gift 3</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let noClicks = 0;
+
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const msg = document.getElementById("message");
+
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+const page3 = document.getElementById("page3");
+
+noBtn.addEventListener("click", () => {
+  noClicks++;
+
+  if (noClicks === 1) {
+    teddyGif.src="dudu.gif";
+    msg.innerText = "Think again 🥺";
+    yesBtn.classList.add("big");
+  } 
+  else if (noClicks === 2) {
+    teddyGif.src="breakRej0_1.gif";
+    msg.innerText = "Are you sure? 😢";
+    yesBtn.classList.remove("big");
+    yesBtn.classList.add("bigger");
+    noBtn.style.width = "50px";
+  } 
+  else {
+    teddyGif.src="breakRej1.gif";
+    msg.innerText = "";
+    yesBtn.classList.remove("bigger");
+    yesBtn.classList.add("full");
+    noBtn.style.display = "none";
+  }
+});
+
+yesBtn.addEventListener("click", () => {
+  page1.classList.add("hidden");
+  page2.classList.remove("hidden");
+});
+
+document.getElementById("giftBtn").addEventListener("click", () => {
+  page2.classList.add("hidden");
+  page3.classList.remove("hidden");
+});
+</script>
+
+</body>
+</html>
