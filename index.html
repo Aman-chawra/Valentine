@@ -42,6 +42,8 @@ body {
   border-radius: 30px;
   text-align: center;
   box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
 }
 
 .hidden { display: none; }
@@ -215,6 +217,49 @@ button {
   text-align: left;
   font-weight: 510;  
 }
+#page6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+#page6 {
+  position: fixed;          /* 🔥 stops layout inheritance */
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;  /* keep your background */
+}
+
+.letter-box {
+  width: 90%;
+  max-width: 420px;
+  height: auto;             /* 🔒 KEY LINE */
+  max-height: 70vh;
+  padding: 22px;
+  border-radius: 22px;
+  background: #fff0f5;
+  box-shadow: 0 20px 40px rgba(255, 0, 100, 0.25);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.letter-scroll {
+  flex: 1;                 /* takes remaining space */
+  overflow-y: auto;        /* 📜 scrolls */
+  margin: 12px 0;
+  padding-right: 6px;
+}
+
+.letter-text {
+  line-height: 1.7;
+  color: #5a1a2d;
+}
+
+
 
 /* 🖼️ Gallery */
 .gallery {
@@ -257,7 +302,12 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
+@media (max-width: 480px) {
+  .letter-box {
+    max-height: 65vh;
+    padding: 16px;
+  }
+}
 
 
 /*Mobile Optimization*/
@@ -322,6 +372,8 @@ button {
 }
 
 /* Love Letter */
+
+
 .letter-box {
   padding: 15px;
 }
@@ -333,6 +385,9 @@ button {
 }
 
 /* 📸 Polaroid Gallery */
+
+
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -443,10 +498,319 @@ button {
 }
 };
 
+.hidden {
+  display: none !important;
+}
+
+#secretMsg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.teddy img:active {
+  transform: scale(1.15);
+}
+
+
+#lockScreen input {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  width: 70%;
+  text-align: center;
+}
+
+/*Breadth*/
+@keyframes breathe {
+  0%   { background-color: #fff1f5; }
+  50%  { background-color: #ffd6e5; }
+  100% { background-color: #fff1f5; }
+}
+
+body {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+#secretName {
+  position: fixed;
+  bottom: 2px;
+  right: 8px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 16px;
+  color: rgba(90, 15, 46, 0.75); /* slightly visible */
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  pointer-events: none;
+  z-index: 999;
+}
+/* 
+#finalLine {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #5a0f2e;
+  opacity: 0;
+  transition: opacity 2s ease;
+  font-family: 'Kalam', cursive;
+} */
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.04); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.heartbeat {
+  animation: heartBeat 1s ease;
+}
+
+
+#petal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Individual petals */
+.petal {
+  position: absolute;
+  top: -10%;
+  font-size: 20px;
+  opacity: 0.25; /* 🌸 LIGHT */
+  animation: fall linear infinite;
+  filter: blur(0.3px);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+}
+
+/* #finalLine {
+  opacity: 0;
+  transition: opacity 2s ease;
+} */
+
+
+#page8 {
+  text-align: center;
+  padding: 60px 40px;
+  animation: fadeInSoft 2s ease;
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*Fade*/
+#page8 {
+  text-align: center;
+  padding: 40px;
+}
+
+#page8 h1 {
+  color: #5a0f2e;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#page8 p {
+  color: #6b1b3a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Fade control */
+.fade-page {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.fade-page.show {
+  opacity: 1;
+}
+
+/* 
+gift */
+
+/* 📱 MOBILE ONLY – shrink gift page card */
+@media (max-width: 768px) {
+
+/* Target only gift page */
+#page3 {
+  transform: scale(0.9);
+  transform-origin: top center;
+}
+
+/* Reduce padding so content fits */
+.card {
+  padding: 16px;
+}
+
+/* Gifts spacing tighter */
+.gifts {
+  gap: 15px;
+}
+
+.gift {
+  padding: 12px;
+}
+
+.gift img {
+  width: 80px;
+}
+
+#page3 h1 {
+  font-size: 20px;
+}
+}
+
+.petal {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 44px;   /* adjust if needed */
+  height: 44px;
+}
+
+.petal {
+  position: fixed;
+  top: -40px;
+  width: 34px;
+  height: 34px;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  pointer-events: none;
+
+  animation-name: leafFall, leafSway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: 1, infinite;
+}
+
+@keyframes leafFall {
+  0% {
+    top: -40px;
+    opacity: 0.5;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 110vh;
+    opacity: 0.5;
+  }
+}
+
+@keyframes leafSway {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-20px) rotate(15deg);
+  }
+  50% {
+    transform: translateX(20px) rotate(-15deg);
+  }
+  75% {
+    transform: translateX(-10px) rotate(10deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
 
 
 
 
+
+.unlock-btn {
+  background: #fff;
+  color: #b84a6a;
+  border: 1.5px solid #f0c1cf;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.unlock-btn:hover {
+  color: #ffffff;
+  background: #ff0000;
+  border-color: #000000;
+  letter-spacing: 2px;
+}
+
+.unlock-btn:active {
+  transform: scale(0.97);
+}
+@media (max-width: 600px) {
+  .unlock-btn {
+    padding: 8px 2px;   /* shorter height & width */
+    font-size: 14px;
+    min-width: auto;       /* remove any forced width */
+    width: 100px;
+    border-radius: 24px;
+  }
+}
+
+
+
+#pageWhy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+#pageWhy .letter-box {
+  width: 100%;
+  max-width: 420px;        /* 👈 keeps it card-sized on PC */
+  max-height: 75vh;        /* 👈 prevents screen overflow */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 600px) {
+  #pageWhy .letter-box {
+    max-height: 90vh;
+    padding: 16px;
+  }
+
+  #pageWhy .letter-text {
+    font-size: 14.5px;
+    max-height: 60vh;
+  }
+}
 
 
 </style>
@@ -454,22 +818,58 @@ button {
 
 <body>
 
+  <div id="petal-bg"></div>
+
+
 <div class="card">
 
+    <!-- PASSWORD -->
+
+  <div id="lockScreen">
+    <h1>Private Space 🔒</h1>
+    <p>Only for you Garruu💖</p>
+    <input id="passInput" placeholder="Enter our secret code🤫" />
+    <br><br>
+    <button class="unlock-btn" onclick="unlock()">Unlock 💝</button>
+    <p id="lockMsg"></p>
+
+    <p id="selfDestruct" style="font-size:12px;opacity:0.6;margin-top:10px;">
+      ⚠️ This page will self-destruct if anyone else opens it
+    </p>
+
+  
+  </div>
+
   <!-- PAGE 1 -->
-  <div id="page1">
+  <div id="page1" class="hidden">
     <div class="teddy">
       <img id="teddyGif" src="src/bear-love.gif" />
     </div>
 
     <h1>Will you be my Lifetime😇?</h1>
     <p>Life is beautiful, but it’s even better with you in it.</p>
-    <p>Henaa meri Jaan😉</p>
+    <p>Henaa.. Mera Chotu Baccha...😉</p>
     <p id="message"></p>
 
     <div class="buttons">
       <button id="yes">YES 💖</button>
       <button id="no">NO 😝</button>
+    </div>
+  </div>
+
+  <!-- Hidden message 2 -->
+  <div id="secretMsg" class="hidden">
+    <div class="letter-box">
+      <h1>Shhh....🤫💖</h1>
+      <p class="letter-text">
+      This message is only for you 🧸<br><br><br>
+        I like You❤️ Soo Much Garima Ji.<br><br><br><br>
+        And mai jaldi hi aapse milne aaunga<br> PINKY WALA PROMISE🤞 
+        <br>
+      </p>
+      <button class="back-btn" onclick="document.getElementById('secretMsg').classList.add('hidden')">
+        Close
+      </button>
     </div>
   </div>
 
@@ -505,8 +905,29 @@ button {
         <p>Gift 3</p>
       </div>
     </div>
+    <!--for hidden msg -->
+    <button class="red-btn" onclick="openWhyYou()">Why You? 💖</button>
+
   </div>
 
+
+  <div id="pageWhy" class="hidden">
+    <div class="letter-box">
+      <h1>Why You? 💕</h1>
+      <p class="letter-text">
+        Because when I close my eyes and imagine  you, it feels like Sukoon.<br>
+        Because my laughs sound better with you.<br>
+        Because your Natkhat little shararatein somehow make me feel complete.<br>
+        Because there are a thousand things left to say…<br>
+        and this page still feels too small for all of them.<br>
+        <br>
+        And honestly…<br> 
+        My heart❤️ chose you long before I even realized it.
+        
+      </p>
+      <button class="back-btn" onclick="whyBack()">⬅ Back to Gifts</button>
+    </div>
+  </div>
  <!-- PAGE 4 (QUIZ) -->
 <div id="page4" class="hidden">
     <div class="quiz-box">
@@ -544,6 +965,16 @@ button {
         <div class="letter-box">
         <h1>My L . . e 💌</h1>
     
+        <div class="letter-scroll">
+        <p class="letter-text" id="letterText"></p>
+        </div>
+
+        <button class="red-btn" id="readMoreBtn" onclick="revealLine()">
+          Read more 💌
+        </button>   
+
+<!-- Removing for one liner
+
         <p class="letter-text">
             Hey Jaaaan,<br><br>
     
@@ -551,7 +982,7 @@ button {
             but somewhere between the smiles,
             the silences —
             you became my everything.<br><br>
-            Thankyou for being my person. I wish to hold your hands each and every moment I’m sorry for irritating you sometimes 😄
+            Thankyou for being my person. I wish to hold your hands each and every moment I’m so sorry for irritating you sometimes 😄
     
             Liking / Loving you feels easy.
             Being with you feels right.
@@ -561,7 +992,7 @@ button {
             Yours, always and forever 💖<br>
             Your Mann
         </p>
-    
+      -->
         <button class="back-btn" onclick="letterBack()">⬅ Back to Gifts</button>
         </div>
     </div>
@@ -600,17 +1031,56 @@ button {
             <span>Heart = stolen💞</span>
           </div>
     </div>
-  
+     <!-- gallery line 
+    <p id="finalLine">
+      You don’t have to click anything else.<br>
+      This was always for you.
+    </p>
+    -->
+
     <button class="back-btn" onclick="galleryBack()">⬅ Back to Gifts</button>
   </div>
   
+  <!-- PAGE 8 (WHEN YOU MISS ME) -->
+  <div id="page8" class="hidden fade-page">
+    <h1>Hey SweetHeart...</h1>
+    <p>
+      If you’re missing me right now…<br><br>
+      I am toooo 3 4 5...∞ Missing Yuuhhh Baby... 💞
+    </p>
+  </div>
 
 </div>
 <div id="imageViewer" class="image-viewer hidden">
     <span class="close-viewer" onclick="closeViewer()">×</span>
     <img id="viewerImg">
   </div>
+
+
 <script>
+let missMeTimer;
+let page8Visible = false;
+
+window.addEventListener("load", () => {
+  const finalLine = document.getElementById("finalLine");
+  if (finalLine) {
+    finalLine.style.opacity = "0";
+  }
+
+  const page8 = document.getElementById("page8");
+  if (page8) {
+    page8.classList.remove("show");
+  }
+});
+
+window.addEventListener("load", () => {
+  const page8 = document.getElementById("page8");
+  if (page8) {
+    page8.classList.remove("show"); // reset fade
+  }
+});
+
+
 let noClicks = 0;
 
 const noBtn = document.getElementById("no");
@@ -624,6 +1094,7 @@ const page4 = document.getElementById("page4");
 const page5 = document.getElementById("page5");
 const page6 = document.getElementById("page6");
 const page7 = document.getElementById("page7");
+const page8 = document.getElementById("page8");
 
 noBtn.onclick = () => {
   noClicks++;
@@ -649,6 +1120,7 @@ noBtn.onclick = () => {
 yesBtn.onclick = () => {
   page1.classList.add("hidden");
   page2.classList.remove("hidden");
+  document.querySelector(".card").classList.add("heartbeat");
 };
 
 giftBtn.onclick = () => {
@@ -668,6 +1140,10 @@ function goBack() {
 </script>
 
 <script>
+
+//Before quiz gallary hidden
+
+let quizPassed = false;
     /* 💘 QUIZ DATA */
     const quizData = [
       {
@@ -729,6 +1205,7 @@ function goBack() {
             // 🎁 After last question → back to gifts
             page4.classList.add("hidden");
             page5.classList.remove("hidden");
+            quizPassed = true;
           }
         }, 900);
       } else {
@@ -748,6 +1225,13 @@ function goBack() {
 function openLetter() {
   page3.classList.add("hidden");
   page6.classList.remove("hidden");
+
+  // reset letter
+  lineIndex = 0;
+  letterBox.innerHTML = "";
+
+  // show button again
+  document.getElementById("readMoreBtn").style.display = "inline-block";
 }
 
 function letterBack() {
@@ -758,6 +1242,11 @@ function letterBack() {
 function openGallery() {
   page3.classList.add("hidden");
   page7.classList.remove("hidden");
+
+  setTimeout(() => {
+  const finalLine = document.getElementById("finalLine");
+  if (finalLine) finalLine.style.opacity = "1";
+}, 2500);
 }
 
 function galleryBack() {
@@ -775,11 +1264,43 @@ function randomTilt() {
 }
 
 /* Run when gallery opens */
+
+//Old funciton
+/*
 function openGallery() {
   page3.classList.add("hidden");
   page7.classList.remove("hidden");
   randomTilt();
+}*/
+
+
+function openGallery() {
+  if (!quizPassed) {
+    alert("Earn the memories first Garru Ji, by completing the QUIZ😝💖");
+    return;
+  }
+  page3.classList.add("hidden");
+  page7.classList.remove("hidden");
+  page7.style.opacity = "1";
+  randomTilt();
+
+  // 🌙 Show final emotional line after delay
+  setTimeout(() => {
+    const finalLine = document.getElementById("finalLine");
+    if (finalLine) {
+      finalLine.style.opacity = "1";
+    }
+  }, 2500);
+
+    // 🔁 RESET miss-me page every time gallery opens
+    const page8 = document.getElementById("page8");
+  page8.classList.remove("show");
+  
+
+  startMissMeTimer();
+  registerGalleryActivity();
 }
+
 
 /* 🔍 Fullscreen View */
 const viewer = document.getElementById("imageViewer");
@@ -795,11 +1316,297 @@ function closeViewer() {
 }
 
 
+/* Long pPress*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+let pressTimer;
+const teddy = document.getElementById("teddyGif");
+const secret = document.getElementById("secretMsg");
+
+if (!teddy) {
+  console.log("❌ Teddy not found");
+  return;
+}
+
+function startPress() {
+  pressTimer = setTimeout(() => {
+    secret.classList.remove("hidden");
+  }, 2000);
+}
+
+function cancelPress() {
+  clearTimeout(pressTimer);
+}
+
+// Desktop
+teddy.addEventListener("mousedown", startPress);
+teddy.addEventListener("mouseup", cancelPress);
+teddy.addEventListener("mouseleave", cancelPress);
+
+// Mobile
+teddy.addEventListener("touchstart", startPress);
+teddy.addEventListener("touchend", cancelPress);
+
+});
+
+
+// password
+
+//const secretCode = "the ag chapter"; // lowercase (case-insensitive)
+const secretCode = "the ag chapter"; // lowercase (case-insensitive)
+
+let attempts = 0;
+
+function unlock() {
+  const input = document
+    .getElementById("passInput")
+    .value
+    .trim()
+    .toLowerCase();
+
+  const msg = document.getElementById("lockMsg");
+
+  if (input === secretCode) {
+    attempts = 0; // reset
+    document.getElementById("lockScreen").classList.add("hidden");
+    document.getElementById("page1").classList.remove("hidden");
+  } else {
+    attempts++;
+
+    if (attempts === 1) {
+      msg.innerText = "Hmm… think again 😝💖";
+    } 
+    else if (attempts === 2) {
+      msg.innerText = "Hint 🤫: our couple page name 😉";
+    } 
+    else {
+      msg.innerText = "You’re sooo close (Try it with Space between each word)💖";
+    }
+
+    msg.style.color = "#ff4d6d";
+  }
+}
+
+// self des joke
+setTimeout(() => {
+  const sd = document.getElementById("selfDestruct");
+  if (sd) {
+    sd.innerText = "Just kidding 😝 but still… only for you 💖";
+  }
+}, 4000);
+
+//Hidden msg
+
+const pageWhy = document.getElementById("pageWhy");
+
+function openWhyYou() {
+  page3.classList.add("hidden");
+  pageWhy.classList.remove("hidden");
+}
+
+function whyBack() {
+  pageWhy.classList.add("hidden");
+  page3.classList.remove("hidden");
+}
+
+
+//One lineerrrr
+
+const letterLines = [
+  "Hey Jaaaan,",
+  "",
+  "I don’t know when it happened Mannu Ji,",
+  "but somewhere between the smiles and silences —",
+  "you became my everything.",
+  "",
+  "Thankyou for being my person. I wish to hold your hands each and every moment I’m so soo sorry for irritating you sometimes 😄",
+  "Liking / Loving you feels easy.",
+  "Being with you feels right.",
+  "And imagining my future without you feels impossible.",
+  "",
+  "Yours. Always and Forever 💖",
+  "Your Mann"
+];
+
+let lineIndex = 0;
+const letterBox = document.getElementById("letterText");
+
+function revealLine() {
+  if (lineIndex < letterLines.length) {
+    letterBox.innerHTML += letterLines[lineIndex] + "<br>";
+    lineIndex++;
+
+    // 🧠 If last line reached → hide button
+    if (lineIndex === letterLines.length) {
+      document.getElementById("readMoreBtn").style.display = "none";
+    }
+  }
+}
+
+let idleTimer;
+
+document.addEventListener("mousemove", () => {
+  document.getElementById("secretName").style.opacity = "0";
+  clearTimeout(idleTimer);
+
+  idleTimer = setTimeout(() => {
+    document.getElementById("secretName").style.opacity = "1";
+  }, 4000); // appears after 4 seconds of stillness
+});
+
+
+
+let secretTimer;
+
+function resetSecretAnchor() {
+  document.getElementById("secretName").style.opacity = "0";
+  clearTimeout(secretTimer);
+
+  secretTimer = setTimeout(() => {
+    document.getElementById("secretName").style.opacity = "1";
+  }, 3500); // appears after stillness
+}
+
+// Trigger on meaningful actions only
+document.addEventListener("click", resetSecretAnchor);
+document.addEventListener("scroll", resetSecretAnchor);
+
+function dropPetal() {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  // petal.innerText = "🌹";
+  petal.style.backgroundImage = "url('./rose.png')";
+
+  petal.style.animationDelay = Math.random() * 8 + "s";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = 8 + Math.random() * 6 + "s";
+  petal.style.fontSize = 14 + Math.random() * 10 + "px";
+
+  document.getElementById("petal-bg").appendChild(petal);
+
+  setTimeout(() => {
+    petal.remove();
+  }, 15000);
+}
+
+setInterval(dropPetal, 1800);
+
+
+
+function startMissMeTimer() {
+  clearTimeout(missMeTimer);
+
+  missMeTimer = setTimeout(() => {
+    showPage8();
+  }, 12000); // ⏳ 8 seconds of staying
+}
+
+function showPage8() {
+  if (page8Visible) return;
+  if (page7.classList.contains("hidden")) return;
+
+  page8Visible = true;
+
+  page7.classList.add("hidden");
+
+  const page8 = document.getElementById("page8");
+  page8.classList.remove("hidden");
+
+  setTimeout(() => {
+    page8.classList.add("show");
+  }, 50);
+
+  page8.addEventListener("mousemove", returnToGallery, { once: true });
+  page8.addEventListener("touchstart", returnToGallery, { once: true });
+  page8.addEventListener("click", returnToGallery, { once: true });
+}
+
+function returnToGallery() {
+  if (!page8Visible) return;
+
+  const page8 = document.getElementById("page8");
+
+  page8.classList.remove("show");
+
+  setTimeout(() => {
+    page8.classList.add("hidden");
+    page7.classList.remove("hidden");
+
+    page8Visible = false;
+
+    // ⏳ Start waiting again
+    startMissMeTimer();
+  }, 800);
+}
+
+
+// function startMissMeTimer() {
+//   clearTimeout(missMeTimer);
+
+//   if (missMeShown) return;
+
+//   missMeTimer = setTimeout(() => {
+//     missMeShown = true;
+
+//     // hide gallery
+//     page7.classList.add("hidden");
+
+//     // show + fade in secret page
+//     const page8 = document.getElementById("page8");
+//     page8.classList.remove("hidden");   // ⭐ THIS WAS MISSING
+    
+//     setTimeout(() => {
+//       page8.classList.add("show");
+
+
+//       // 🧲 Attach listeners
+//       page8.addEventListener("mousemove", returnToGallery, { once: true });
+//       page8.addEventListener("touchstart", returnToGallery, { once: true });
+//       page8.addEventListener("click", returnToGallery, { once: true });
+
+//     }, 50);
+
+//   }, 8000);
+// }
+
+// function returnToGallery() {
+//   const page8 = document.getElementById("page8");
+
+//   // fade out page8
+//   page8.classList.remove("show");
+
+//   setTimeout(() => {
+//     page8.classList.add("hidden");
+
+//     // show gallery again
+//     page7.classList.remove("hidden");
+
+//     // reset timer so it doesn't auto-open again
+//     missMeShown = true;
+//   }, 800);
+// }
+
+
+function registerGalleryActivity() {
+  ["mousemove", "touchstart", "click", "scroll"].forEach(event => {
+    page7.addEventListener(event, () => {
+      if (!page7.classList.contains("hidden")) {
+        clearTimeout(missMeTimer);
+        startMissMeTimer();
+      }
+    });
+  });
+}
+
+
+
+
     </script>
     
+    
+    <div id="secretName">Aman & Garima</div>
 
+ 
 </body>
 </html>
-
-
-
